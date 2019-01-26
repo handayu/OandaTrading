@@ -1,0 +1,47 @@
+Oanda-指数CFD交易：
+
+Australia200 澳大利亚200指数 
+China A50    中国A50指数
+Europe 50    欧洲50指数
+France 40    法国40指数
+Germany 30   德国30指数
+Hong Kong 33 香港33指数
+Japan225     日经225指数
+
+Netherlands25 荷兰25指数
+Singapore30   新加坡30指数
+UK100         英国富时100指数
+US Nas100     纳斯达克100指数
+US Russ2000   俄罗斯2000指数
+US SPX500     标普500指数
+US Wall St30  华尔街30指数
+
+
+Oanda-国债CFD交易：
+
+Bund 德国长期国债 
+UK 10Y Gilt 英国10年期国债 
+US 10Y T-Note 美国10年期国债
+US 2Y T-Note 美国2年期国债
+US 5Y T-Note 美国5年期国债
+US T-Bond 美国长期国债
+
+Oanda-外汇零售保证金交易
+
+Oanda-贵金属交易:
+
+Gold黄金现货
+Gold/Silver比价交易
+Silver白银现货
+Palladium钯金现货
+Platinum铂金现货
+
+Oanda-商品期货CFD交易：
+Brent Crude Oil布伦特原油
+Corn 谷物期货
+Nutural Gas 天然气
+Sugar 白糖
+West Texas Oil西德克萨斯原油
+Wheat 小麦
+Soybeans 黄豆
+
