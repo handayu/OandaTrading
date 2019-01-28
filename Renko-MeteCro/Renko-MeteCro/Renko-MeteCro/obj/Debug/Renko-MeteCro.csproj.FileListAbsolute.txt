@@ -9,3 +9,4 @@ C:\Users\Administrator\Desktop\Trading-Server-Settings\Renko-MeteCro\Renko-MeteC
 C:\Users\Administrator\Desktop\Trading-Server-Settings\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko-MeteCro.pdb
 C:\Users\Administrator\Desktop\Trading-Server-Settings\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko_MeteCro.Form1.resources
 C:\Users\Administrator\Desktop\Trading-Server-Settings\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko_MeteCro.FormDateSeting.resources
+C:\Users\Administrator\Desktop\Trading-Server-Settings\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko_MeteCro.FormChart.resources

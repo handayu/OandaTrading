@@ -7,34 +7,38 @@ using System.Threading.Tasks;
 
 namespace Renko_MeteCro
 {
-    public class CommandLinesHooker
+    public class McOutPutWndHooker
     {
         [DllImport("user32.dll", EntryPoint = "SendMessageA")]
         private static extern int SendMessage(IntPtr hwnd, int wMsg, IntPtr wParam, string lParam);
         private const int WM_SETTEXT = 0x000C;
+
+
+        [DllImport("user32.dll", EntryPoint = "SendMessageA")]
+        private static extern int SendMessage(IntPtr hwnd, int wMsg, int wParam, StringBuilder lParam);
+        private int WM_GETTEXT = 0x0D;
+
+
         private IntPtr m_intPtr;
 
-        public CommandLinesHooker(IntPtr ptr)
+        public McOutPutWndHooker(IntPtr ptr)
         {
             //初始化CommandLine的窗口句柄
             m_intPtr = ptr;
         }
 
-        /// <summary>
-        /// 发送WM_SETTEXT消息
-        /// </summary>
-        /// <param name="messageInfo"></param>
-        public void SendMessageCommandLine(string messageInfo)
+        public void SendMessageToOutPutWnd(string messageInfo)
         {
             SendMessage(m_intPtr, WM_SETTEXT, IntPtr.Zero, messageInfo);
         }
 
-        /// <summary>
-        /// 发送Click消息
-        /// </summary>
-        public void SendMessageClick()
+        public string SendMessageToHoldOutPutMessage()
         {
-            SendMessage(m_intPtr, WM_SETTEXT, IntPtr.Zero, messageInfo);
+            const int buffer_size = 1024;
+            StringBuilder buffer = new StringBuilder(buffer_size);
+            SendMessage(m_intPtr, WM_GETTEXT, buffer_size, buffer);
+            string str = buffer.ToString();
+            return str;
         }
     }
 }
