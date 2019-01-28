@@ -50,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.richTextBox_log = new System.Windows.Forms.RichTextBox();
             this.button_Start = new System.Windows.Forms.Button();
+            this.button_ClickTest = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -58,6 +59,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.button_ClickTest);
             this.groupBox1.Controls.Add(this.textBox_TestCommandLine);
             this.groupBox1.Controls.Add(this.textBox_CommandLineHandle);
             this.groupBox1.Controls.Add(this.button_SendCommandLines);
@@ -65,9 +67,9 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.ForeColor = System.Drawing.Color.Gray;
             this.groupBox1.Location = new System.Drawing.Point(8, 8);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(233, 120);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -76,26 +78,26 @@
             // textBox_TestCommandLine
             // 
             this.textBox_TestCommandLine.Location = new System.Drawing.Point(76, 57);
-            this.textBox_TestCommandLine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_TestCommandLine.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_TestCommandLine.Name = "textBox_TestCommandLine";
             this.textBox_TestCommandLine.Size = new System.Drawing.Size(152, 21);
             this.textBox_TestCommandLine.TabIndex = 4;
-            this.textBox_TestCommandLine.Text = "TestCommandLineString";
+            this.textBox_TestCommandLine.Text = ".isy";
             // 
             // textBox_CommandLineHandle
             // 
             this.textBox_CommandLineHandle.Location = new System.Drawing.Point(158, 25);
-            this.textBox_CommandLineHandle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_CommandLineHandle.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_CommandLineHandle.Name = "textBox_CommandLineHandle";
             this.textBox_CommandLineHandle.Size = new System.Drawing.Size(70, 21);
             this.textBox_CommandLineHandle.TabIndex = 3;
             // 
             // button_SendCommandLines
             // 
-            this.button_SendCommandLines.Location = new System.Drawing.Point(55, 82);
-            this.button_SendCommandLines.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_SendCommandLines.Location = new System.Drawing.Point(15, 83);
+            this.button_SendCommandLines.Margin = new System.Windows.Forms.Padding(2);
             this.button_SendCommandLines.Name = "button_SendCommandLines";
-            this.button_SendCommandLines.Size = new System.Drawing.Size(166, 27);
+            this.button_SendCommandLines.Size = new System.Drawing.Size(116, 27);
             this.button_SendCommandLines.TabIndex = 2;
             this.button_SendCommandLines.Text = "SendMessage-Str";
             this.button_SendCommandLines.UseVisualStyleBackColor = true;
@@ -130,9 +132,9 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.ForeColor = System.Drawing.Color.Gray;
             this.groupBox2.Location = new System.Drawing.Point(256, 8);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(233, 120);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -141,7 +143,7 @@
             // button_GetOutPutContent
             // 
             this.button_GetOutPutContent.Location = new System.Drawing.Point(127, 87);
-            this.button_GetOutPutContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_GetOutPutContent.Margin = new System.Windows.Forms.Padding(2);
             this.button_GetOutPutContent.Name = "button_GetOutPutContent";
             this.button_GetOutPutContent.Size = new System.Drawing.Size(95, 23);
             this.button_GetOutPutContent.TabIndex = 7;
@@ -152,7 +154,7 @@
             // button_SendNullStr
             // 
             this.button_SendNullStr.Location = new System.Drawing.Point(13, 87);
-            this.button_SendNullStr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_SendNullStr.Margin = new System.Windows.Forms.Padding(2);
             this.button_SendNullStr.Name = "button_SendNullStr";
             this.button_SendNullStr.Size = new System.Drawing.Size(113, 23);
             this.button_SendNullStr.TabIndex = 6;
@@ -163,7 +165,7 @@
             // textBox_OutputHandle
             // 
             this.textBox_OutputHandle.Location = new System.Drawing.Point(19, 51);
-            this.textBox_OutputHandle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_OutputHandle.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_OutputHandle.Name = "textBox_OutputHandle";
             this.textBox_OutputHandle.Size = new System.Drawing.Size(186, 21);
             this.textBox_OutputHandle.TabIndex = 4;
@@ -191,9 +193,9 @@
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.ForeColor = System.Drawing.Color.Gray;
             this.groupBox3.Location = new System.Drawing.Point(8, 132);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(481, 113);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
@@ -224,7 +226,7 @@
             // button_DateSet
             // 
             this.button_DateSet.Location = new System.Drawing.Point(334, 22);
-            this.button_DateSet.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button_DateSet.Margin = new System.Windows.Forms.Padding(2);
             this.button_DateSet.Name = "button_DateSet";
             this.button_DateSet.Size = new System.Drawing.Size(76, 18);
             this.button_DateSet.TabIndex = 5;
@@ -245,7 +247,7 @@
             // textBox_DataSource
             // 
             this.textBox_DataSource.Location = new System.Drawing.Point(67, 49);
-            this.textBox_DataSource.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_DataSource.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_DataSource.Name = "textBox_DataSource";
             this.textBox_DataSource.Size = new System.Drawing.Size(149, 21);
             this.textBox_DataSource.TabIndex = 3;
@@ -254,7 +256,7 @@
             // textBox_Ins
             // 
             this.textBox_Ins.Location = new System.Drawing.Point(67, 21);
-            this.textBox_Ins.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_Ins.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_Ins.Name = "textBox_Ins";
             this.textBox_Ins.Size = new System.Drawing.Size(149, 21);
             this.textBox_Ins.TabIndex = 2;
@@ -283,7 +285,7 @@
             // richTextBox_log
             // 
             this.richTextBox_log.Location = new System.Drawing.Point(8, 249);
-            this.richTextBox_log.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox_log.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox_log.Name = "richTextBox_log";
             this.richTextBox_log.Size = new System.Drawing.Size(483, 131);
             this.richTextBox_log.TabIndex = 3;
@@ -300,6 +302,17 @@
             this.button_Start.UseVisualStyleBackColor = false;
             this.button_Start.Click += new System.EventHandler(this.button_Start_Click);
             // 
+            // button_ClickTest
+            // 
+            this.button_ClickTest.Location = new System.Drawing.Point(135, 82);
+            this.button_ClickTest.Margin = new System.Windows.Forms.Padding(2);
+            this.button_ClickTest.Name = "button_ClickTest";
+            this.button_ClickTest.Size = new System.Drawing.Size(82, 27);
+            this.button_ClickTest.TabIndex = 5;
+            this.button_ClickTest.Text = "Test-Click";
+            this.button_ClickTest.UseVisualStyleBackColor = true;
+            this.button_ClickTest.Click += new System.EventHandler(this.button_ClickTest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -313,9 +326,11 @@
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "砖图-蒙特克罗测试";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
+            this.Load += new System.EventHandler(this.Form_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -350,6 +365,7 @@
         private System.Windows.Forms.TextBox textBox_OutputHandle;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button_Start;
+        private System.Windows.Forms.Button button_ClickTest;
     }
 }
 

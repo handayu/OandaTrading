@@ -47,6 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox_BackDayNum = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -149,10 +150,10 @@
             // 
             // richTextBox_mcCommandLineStr
             // 
-            this.richTextBox_mcCommandLineStr.Location = new System.Drawing.Point(9, 250);
+            this.richTextBox_mcCommandLineStr.Location = new System.Drawing.Point(9, 282);
             this.richTextBox_mcCommandLineStr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.richTextBox_mcCommandLineStr.Name = "richTextBox_mcCommandLineStr";
-            this.richTextBox_mcCommandLineStr.Size = new System.Drawing.Size(569, 73);
+            this.richTextBox_mcCommandLineStr.Size = new System.Drawing.Size(569, 41);
             this.richTextBox_mcCommandLineStr.TabIndex = 9;
             this.richTextBox_mcCommandLineStr.Text = "";
             // 
@@ -258,11 +259,23 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "回测组:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.DarkRed;
+            this.label6.Location = new System.Drawing.Point(9, 252);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(521, 12);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "例:.csy dnum=1, name=CFFEX.IF HOT, df=MCTrader, res=1 min,from=12/31/2018, to=1/5/" +
+    "2019";
+            // 
             // FormDateSeting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(585, 370);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button_Confirm);
             this.Controls.Add(this.button_Cancel);
@@ -309,5 +322,6 @@
         private System.Windows.Forms.TextBox textBox_BackDayNum;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_ProductCommandLines;
+        private System.Windows.Forms.Label label6;
     }
 }

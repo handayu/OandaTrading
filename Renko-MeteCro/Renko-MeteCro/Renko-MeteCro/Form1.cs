@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace Renko_MeteCro
 
         private void button_DateSet_Click(object sender, EventArgs e)
         {
-            if(this.textBox_Ins.Text == "")
+            if (this.textBox_Ins.Text == "")
             {
                 MessageBox.Show("请先设置品种...");
                 return;
@@ -41,18 +42,18 @@ namespace Renko_MeteCro
             string ins = this.textBox_Ins.Text;
             string dataSource = this.textBox_DataSource.Text;
 
-            FormDateSeting s = new FormDateSeting(ins,dataSource);
+            FormDateSeting s = new FormDateSeting(ins, dataSource);
             s.ShowDialog();
 
             this.m_commandLists = s.COMMANDLISTS;
 
-            if(this.m_commandLists == null || this.m_commandLists.Count <= 0 )
+            if (this.m_commandLists == null || this.m_commandLists.Count <= 0)
             {
                 MessageBox.Show("设置的回测日期模式(NMC-CommandLine为空),请注意重新设置...");
                 SetLog("设置的回测日期模式(NMC-CommandLine为空),请注意重新设置...");
             }
 
-            if(this.m_commandLists != null && this.m_commandLists.Count > 0)
+            if (this.m_commandLists != null && this.m_commandLists.Count > 0)
             {
 
             }
@@ -61,17 +62,30 @@ namespace Renko_MeteCro
 
         private void SetLog(string str)
         {
+            if (this.InvokeRequired)
+            {
+                this.BeginInvoke(new Action<string>(SetLog), str);
+                return;
+            }
+
+            //让文本框获取焦点，不过注释这行也能达到效果
+            richTextBox_log.Focus();
+            //设置光标的位置到文本尾   
+            richTextBox_log.Select(richTextBox_log.TextLength, 0);
+            //滚动到控件光标处   
+            richTextBox_log.ScrollToCaret();
+
             this.richTextBox_log.AppendText("\n" + DateTime.Now.ToString() + ":" + "\n" + "  " + str);
         }
 
         private void button_SendCommandLines_Click(object sender, EventArgs e)
         {
             //
-            IntPtr handle = (IntPtr)Convert.ToInt32(this.textBox_CommandLineHandle.Text,16);
+            IntPtr handle = (IntPtr)Convert.ToInt32(this.textBox_CommandLineHandle.Text, 16);
             CommandLinesHooker hooker = new CommandLinesHooker(handle);
             hooker.SendMessageCommandLine(this.textBox_TestCommandLine.Text);
 
-            if(m_CommandLineHooker == null)
+            if (m_CommandLineHooker == null)
             {
                 m_CommandLineHooker = new CommandLinesHooker(handle);
             }
@@ -80,15 +94,13 @@ namespace Renko_MeteCro
 
         }
 
-
-
         private void button_SendNullStr_Click(object sender, EventArgs e)
         {
             IntPtr handle = (IntPtr)Convert.ToInt32(this.textBox_OutputHandle.Text, 16);
             McOutPutWndHooker hooker = new McOutPutWndHooker(handle);
             hooker.SendMessageToOutPutWnd("");
 
-            if(m_looper == null)
+            if (m_looper == null)
             {
                 m_looper = new MCDataLooper(handle);
             }
@@ -116,7 +128,7 @@ namespace Renko_MeteCro
         private void button_Start_Click(object sender, EventArgs e)
         {
             //判断主引擎
-            if(m_looper == null)
+            if (m_looper == null)
             {
                 MessageBox.Show("还未测试通过Output窗口Hooker，请先通过测试...");
                 SetLog("还未测试通过Output窗口Hooker，请先通过测试...");
@@ -133,6 +145,14 @@ namespace Renko_MeteCro
             }
             SetLog("CommandLineHooker通过测试-成功...");
 
+            //判断是否有指令集
+            if (m_commandLists == null || m_commandLists.Count <= 0)
+            {
+                MessageBox.Show("还未设置要回测的时间区间，请先设置区间...");
+                SetLog("还未设置要回测的时间区间，请先设置区间...");
+                return;
+            }
+            SetLog("M_commandLists设置完毕-成功...");
 
             //弹出图线窗口
             m_chart = new FormChart();
@@ -174,7 +194,61 @@ namespace Renko_MeteCro
         /// </summary>
         private void M_looper_EventCanNextCommandLine()
         {
-            
+            //始终取第一条去发送处理，最后把这条记录删除掉
+            if (m_commandLists.Count > 0)
+            {
+                string commandLine = m_commandLists[0];
+                m_CommandLineHooker.SendMessageCommandLine(commandLine);
+
+                SetLog("发送CommandLine指令-成功，继续下一个区间回测...");
+
+                m_commandLists.RemoveAt(0);
+            }
+        }
+
+        private void button_ClickTest_Click(object sender, EventArgs e)
+        {
+            //
+            IntPtr handle = (IntPtr)Convert.ToInt32(this.textBox_CommandLineHandle.Text, 16);
+            CommandLinesHooker hooker = new CommandLinesHooker(handle);
+            hooker.SendMessageClick();
+
+            if (m_CommandLineHooker == null)
+            {
+                m_CommandLineHooker = new CommandLinesHooker(handle);
+            }
+
+            SetLog("已测试完命令Combox点击，请检查MC-CommandCombox...");
+        }
+
+        private void Form_Closing(object sender, FormClosingEventArgs e)
+        {
+            //< add key = "CommandLineHandle" value = ""/>
+            //< add key = "MCOutPutHandle" value = ""/>
+            //< add key = "CommandLineTest" value = ""/>    
+            //< add key = "Instrument" value = ""/>           
+            //< add key = "DataSource" value = ""/>
+
+            ConfigurationManager.AppSettings["CommandLineHandle"] = this.textBox_CommandLineHandle.Text;
+            ConfigurationManager.AppSettings["MCOutPutHandle"] = this.textBox_OutputHandle.Text;
+            ConfigurationManager.AppSettings["CommandLineTest"] = this.textBox_TestCommandLine.Text;
+            ConfigurationManager.AppSettings["Instrument"] = this.textBox_Ins.Text;
+            ConfigurationManager.AppSettings["DataSource"] = this.textBox_DataSource.Text;
+        }
+
+        private void Form_Load(object sender, EventArgs e)
+        {
+            //< add key = "CommandLineHandle" value = ""/>
+            //< add key = "MCOutPutHandle" value = ""/>
+            //< add key = "CommandLineTest" value = ""/>    
+            //< add key = "Instrument" value = ""/>           
+            //< add key = "DataSource" value = ""/>
+
+            this.textBox_CommandLineHandle.Text = ConfigurationManager.AppSettings["CommandLineHandle"];
+            this.textBox_OutputHandle.Text = ConfigurationManager.AppSettings["MCOutPutHandle"];
+            this.textBox_TestCommandLine.Text = ConfigurationManager.AppSettings["CommandLineTest"];
+            this.textBox_Ins.Text = ConfigurationManager.AppSettings["Instrument"];
+            this.textBox_DataSource.Text = ConfigurationManager.AppSettings["DataSource"];
         }
     }
 }

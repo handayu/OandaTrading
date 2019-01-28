@@ -54,7 +54,7 @@ namespace Renko_MeteCro
         public void Start()
         {
             //设定开启定时器发消息
-            m_timer = new System.Threading.Timer(new System.Threading.TimerCallback(tick), null, 0, 10);
+            m_timer = new System.Threading.Timer(new System.Threading.TimerCallback(tick), null, 0, 5000);
 
         }
 
@@ -65,7 +65,7 @@ namespace Renko_MeteCro
             SendMessage(m_intPtr, WM_GETTEXT, buffer_size, buffer);
             string str = buffer.ToString();
 
-            if (str == "" || str == null) return;
+            //if (str == "" || str == null) return;
 
             //2.清空输出窗口
             SendMessage(m_intPtr, WM_SETTEXT, IntPtr.Zero, "");

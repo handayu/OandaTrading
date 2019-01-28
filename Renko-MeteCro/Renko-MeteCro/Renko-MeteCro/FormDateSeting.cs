@@ -69,6 +69,7 @@ namespace Renko_MeteCro
         private void button_Confirm_Click(object sender, EventArgs e)
         {
             //CommandList赋值给属性，退出
+            COMMANDLISTS = m_mcCommandLineList;
 
             this.Close();
         }
@@ -95,9 +96,32 @@ namespace Renko_MeteCro
             //固定终点，起始日往前推算N天生成N组CommandLine指令
             if(this.radioButton_focusLast.Checked)
             {
-                //string daysNum = this.textBox_BackDayNum.Text
+                int backDays = 0;
+                string daysNum = this.textBox_BackDayNum.Text;
+                int.TryParse(daysNum, out backDays);
+                //因为是往前，所以在这里求负数。
 
-                //DateTime newStartDate = startDate.AddDays()
+                DateTime newStartDate = startDate.AddDays(0-backDays);
+
+
+                for(DateTime tempStartDate = newStartDate; tempStartDate <= startDate; tempStartDate = tempStartDate.AddDays(1))
+                {
+                    DateTime sDate = tempStartDate;
+                    DateTime eDate = endDate;
+                    string ins = m_ins;
+                    string dateSource = m_dataSource;
+
+                    //合成一条需要回测的指令
+                    string result = string.Empty;
+                    //实例指令:
+                    //.csy dnum=1, name=CFFEX.IF HOT, df=MCTrader, res=1 min,from=12/31/2018, to=1/5/2019
+                    result = string.Format(".csy dnum=1, name={0}, df={1}, res=1 min,from={2}/{3}/{4}, to={5}/{6}/{7}",
+                        m_ins, m_dataSource, sDate.Month, sDate.Day, sDate.Year, eDate.Month, eDate.Day, eDate.Year);
+
+                    m_mcCommandLineList.Add(result);
+
+                    this.richTextBox_mcCommandLineStr.AppendText(result + "\n");
+                }
             }
 
             //固定起点，终点日往后推算N天生成N组CommandLine指令
