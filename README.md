@@ -17,6 +17,10 @@
 如有兴趣的量化－程序化交易员或者团队:
    请加 QQ：578931169。
    WeChart: hanyu196910
+   
+   <h3 id="weibo-weixin">微信</h3>
+ *「DotNet」：专注 .NET量化交易平台开发，量化交易，程序化交易，投资组合构建。
+   <br><img src="http://ww4.sinaimg.cn/small/63918611gw1epb2c79isfj20460460tr.jpg" width=150 height=150>
 * * *
 
 ### Ｋ线图表和特殊图表－问题的初衷
@@ -57,6 +61,4 @@
 　　　.csy dnum=1, name=CFFEX.IF HOT, df=MCTrader, res=1 min,from=12/31/2018, to=1/5/2019
 
 ## 其他列表（Other Lists）
-<h3 id="weibo-weixin">微信公众号</h3>
-* 「DotNet」：专注 .NET 相关内容，包括：.NET 和 C# 开发心得、工具资源和相关动态。
-<br><img src="http://ww4.sinaimg.cn/small/63918611gw1epb2c79isfj20460460tr.jpg" width=150 height=150>
+
