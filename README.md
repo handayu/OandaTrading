@@ -14,15 +14,9 @@
 
 ### 参与本项目？
 
-从下面的目录来看，本项目的工作量小不了，所以非常期待能有更多程序员一起来参与。
-
-不过加入前，有几个小要求：
-
-* 英文还不错，能读懂英文并用自己的话复述；
-* 在用 DotNet；
-
-如有兴趣，请加 QQ：50872495。加 Q 时请注明「DotNet大全」
-
+如有兴趣的量化－程序化交易员或者团队:
+   请加 QQ：578931169。
+   WeChart: hanyu196910
 * * *
 
 ### Ｋ线图表和特殊图表－问题的初衷
@@ -62,34 +56,7 @@
 　　2.比如需要调用出IF的指定区间段的Renko图，周期可以默认为Tick（设置一次即可），在CommandLine旁边，策略加载一次就可以了，之后可以只用ComandLine选择起始和终点即可，加载的策略可以直接在公式编辑器中打印出每笔盈亏，外部工具获取，绘制出曲线，这样利用工具，可以同时绘制出成千上万了同品种同策略不同区间段的策略资金曲线，用于看普适性和上述出现的起始点问题，Ｋ线图表也是同样的道理。
 　　　.csy dnum=1, name=CFFEX.IF HOT, df=MCTrader, res=1 min,from=12/31/2018, to=1/5/2019
 
-### 奖励计划
-
-虽然奖励可能并不是你加入的主要原因，但还是有必要提一下：
-
-* 整理超过 20 个资源后，可在伯乐在线上开通打赏；
-* 每整理 20 个资源，有机会获得技术书籍或各种有意思的创意、极客产品；
-* [奖励详情](http://hao.jobbole.com/rewards/)
-
-* * *
-
-
-
 ## 其他列表（Other Lists）
-
-*   [.NET-libraries-that-make-your-life-easier](https://github.com/tallesl/.NET-libraries-that-make-your-life-easier)：开源的 .NET 库，让你的生活更加轻松、
-*   [awesome-LINQ](https://github.com/aloisdg/awesome-linq)：一组精心挑选的超棒的 LINQ 类库、工具等。
-
-<h3 id="websites">知名网站</h3>
-*值得关注的 DotNet 技术站点。*
-
-<h4>中文站点</h4>
-
-待补充
-
-<h4>英文站点</h4>
-
-待补充
-
 <h3 id="weibo-weixin">微信公众号</h3>
 * 「DotNet」：专注 .NET 相关内容，包括：.NET 和 C# 开发心得、工具资源和相关动态。
 <br><img src="http://ww4.sinaimg.cn/small/63918611gw1epb2c79isfj20460460tr.jpg" width=150 height=150>
