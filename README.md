@@ -4,7 +4,7 @@
 
 * * *
 ### 预期测试效果
-     ![Image](https://github.com/handayu/Trading-Server-Settings/blob/master/gif/backtest.png)
+     ![image text](https://github.com/handayu/Trading-Server-Settings/blob/master/gif/backtest.png)
 
 ### 问题的提出？
 
