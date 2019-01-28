@@ -4,7 +4,7 @@
 
 * * *
 ### 预期测试效果 - 1.静态终结果
-     ![image text](https://github.com/handayu/Trading-Server-Settings/blob/master/gif/backtest.png)
+      <br><img src="https://github.com/handayu/Trading-Server-Settings/blob/master/gif/backtest.png" width=150 height=150>
 
 ### 预期测试效果 - 2.动态回测过程
      ![image text](https://github.com/handayu/Trading-Server-Settings/blob/master/gif/backtest.png)
