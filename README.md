@@ -3,7 +3,10 @@
 　　对于很多量化交易爱好者而言，回测是进入实盘交易的必经之路，对于自己有相当的ＩＴ－计算机程序方面基础的交易员而言，大量的随机性试验在自建平台上是可以很轻松实现的，但是对于使用第三方量化交易软件的量化交易者而言，大量的随机性和移动式区间回测，样本内外回测，观察资金曲线在蒙特卡罗样本下的集合性表现就是一个比较难去实现的关卡。基于这个考量，笔者在Multicharts的基础上开发了可以进行蒙特卡罗回测的交易工具，可以在这个基础上进行高密度的策略压力测试，以观察自己策略的普适性和潜在的过度拟合的嫌疑，能更加客观的面对自己的交易策略的表现。
 
 * * *
-### 预期测试效果
+### 预期测试效果 - 1.静态终结果
+     ![image text](https://github.com/handayu/Trading-Server-Settings/blob/master/gif/backtest.png)
+
+### 预期测试效果 - 2.动态回测过程
      ![image text](https://github.com/handayu/Trading-Server-Settings/blob/master/gif/backtest.png)
 
 ### 问题的提出？
