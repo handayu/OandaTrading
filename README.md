@@ -25,7 +25,7 @@
    
    <h3 id="weibo-weixin">微信</h3>
  *「DotNet」：专注 .NET量化交易平台开发，量化交易，程序化交易，投资组合构建。
-   <br><img src="http://ww4.sinaimg.cn/small/63918611gw1epb2c79isfj20460460tr.jpg" width=150 height=150>
+   <br><img src="https://github.com/handayu/Trading-Server-Settings/blob/master/gif/wechart.jpg" width=150 height=150>
 * * *
 
 ### Ｋ线图表和特殊图表－问题的初衷
