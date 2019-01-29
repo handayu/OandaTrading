@@ -69,12 +69,13 @@
 
 ### 解决方案
 
-　　*.Multi charts-CommandLine命令集合链接：
+- .Multi charts-CommandLine命令集合链接：
      https://www.multicharts.com/trading-software/index.php/CommandLine
 
 
-　　*.比如需要调用出IF的指定区间段的Renko图，周期可以默认为Tick（设置一次即可），在CommandLine旁边，策略加载一次就可以了，之后可以只用ComandLine选择起始和终点即可，加载的策略可以直接在公式编辑器中打印出每笔盈亏，外部工具获取，绘制出曲线，这样利用工具，可以同时绘制出成千上万了同品种同策略不同区间段的策略资金曲线，用于看普适性和上述出现的起始点问题，Ｋ线图表也是同样的道理。
-　　　.csy dnum=1, name=CFFEX.IF HOT, df=MCTrader, res=1 min,from=12/31/2018, to=1/5/2019
+- .比如需要调用出IF的指定区间段的Renko图，周期可以默认为Tick（设置一次即可），在CommandLine旁边，策略加载一次就可以了，之后可以只用ComandLine选择起始和终点即可，加载的策略可以直接在公式编辑器中打印出每笔盈亏，外部工具获取，绘制出曲线，这样利用工具，可以同时绘制出成千上万了同品种同策略不同区间段的策略资金曲线，用于看普适性和上述出现的起始点问题，Ｋ线图表也是同样的道理。
+　　　
+- Multicharts CommandLine指令实例　.csy dnum=1, name=CFFEX.IF HOT, df=MCTrader, res=1 min,from=12/31/2018, to=1/5/2019
 
 ## 其他列表（Other Lists）
 
