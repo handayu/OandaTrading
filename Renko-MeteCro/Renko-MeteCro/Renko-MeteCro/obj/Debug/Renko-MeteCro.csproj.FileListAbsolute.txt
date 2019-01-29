@@ -10,3 +10,15 @@ C:\Users\Administrator\Desktop\Trading-Server-Settings\Renko-MeteCro\Renko-MeteC
 C:\Users\Administrator\Desktop\Trading-Server-Settings\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko_MeteCro.Form1.resources
 C:\Users\Administrator\Desktop\Trading-Server-Settings\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko_MeteCro.FormDateSeting.resources
 C:\Users\Administrator\Desktop\Trading-Server-Settings\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko_MeteCro.FormChart.resources
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\bin\Debug\Renko-MeteCro.exe.config
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\bin\Debug\Renko-MeteCro.exe
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\bin\Debug\Renko-MeteCro.pdb
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko-MeteCro.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko_MeteCro.Form1.resources
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko_MeteCro.FormChart.resources
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko_MeteCro.FormDateSeting.resources
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko_MeteCro.Properties.Resources.resources
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko-MeteCro.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko-MeteCro.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko-MeteCro.exe
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\Renko-MeteCro\obj\Debug\Renko-MeteCro.pdb
