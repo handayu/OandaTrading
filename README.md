@@ -4,13 +4,12 @@
 
 * * *
 ### 预期测试效果 - 1.静态终结果
-###
+*
         ![image](https://github.com/handayu/OandaTrading/blob/master/image/backtest.jpg)
 
 ### 预期测试效果 - 2.动态回测过程
+*
         ![image](https://github.com/handayu/Trading-Server-Settings/blob/master/gif/backtest.jpg)
-
-        <br><img src="https://github.com/handayu/OandaTrading/blob/master/image/backtest.jpg" width=150 height=150>
 
 ### 问题的提出？
 
