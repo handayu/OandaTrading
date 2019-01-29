@@ -5,7 +5,7 @@
 * * *
 ### 预期测试效果 - 1.静态终结果
 *
-        ![image](https://github.com/handayu/OandaTrading/blob/master/image/backtest.jpg)
+        ![Image text](https://github.com/handayu/OandaTrading/blob/master/image/backtest.jpg)
 
 ### 预期测试效果 - 2.动态回测过程
 *
