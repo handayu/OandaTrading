@@ -16,6 +16,8 @@ namespace Renko_MeteCro
         private MCDataLooper m_looper = null;
         private CommandLinesHooker m_CommandLineHooker = null;
 
+        private bool m_switchTrade = false;
+
         private FormChart m_chart = null;
 
         private List<string> m_commandLists = new List<string>();
@@ -80,18 +82,23 @@ namespace Renko_MeteCro
 
         private void button_SendCommandLines_Click(object sender, EventArgs e)
         {
-            //
-            IntPtr handle = (IntPtr)Convert.ToInt32(this.textBox_CommandLineHandle.Text, 16);
-            CommandLinesHooker hooker = new CommandLinesHooker(handle);
-            hooker.SendMessageCommandLine(this.textBox_TestCommandLine.Text);
-
-            if (m_CommandLineHooker == null)
+            try
             {
-                m_CommandLineHooker = new CommandLinesHooker(handle);
+                IntPtr handle = (IntPtr)Convert.ToInt32(this.textBox_CommandLineHandle.Text, 16);
+                CommandLinesHooker hooker = new CommandLinesHooker(handle);
+                hooker.SendMessageCommandLine(this.textBox_TestCommandLine.Text);
+
+                if (m_CommandLineHooker == null)
+                {
+                    m_CommandLineHooker = new CommandLinesHooker(handle);
+                }
+
+                SetLog("已测试完命令Combox输入，请检查MC-CommandCombox...");
             }
-
-            SetLog("已测试完命令Combox输入，请检查MC-CommandCombox...");
-
+            catch(Exception ex)
+            {
+                SetLog(string.Format("测试完命令Combox输入发生异常,请检查句柄可能的错误:{0}...",ex.Message));
+            }
         }
 
         private void button_SendNullStr_Click(object sender, EventArgs e)
@@ -143,6 +150,7 @@ namespace Renko_MeteCro
                 SetLog("还未测试通过ComandLineHooker，请先通过测试...");
                 return;
             }
+
             SetLog("CommandLineHooker通过测试-成功...");
 
             //判断是否有指令集
@@ -157,6 +165,7 @@ namespace Renko_MeteCro
             //弹出图线窗口
             m_chart = new FormChart();
             m_chart.Show();
+            m_chart.TopMost = true;
             SetLog("图线阵列通过测试-成功...");
 
 
@@ -187,6 +196,10 @@ namespace Renko_MeteCro
 
             SetLog("发送第一条CommandLine指令-成功，进入循环...");
 
+            this.button_Start.Enabled = false;
+            this.button_Start.BackColor = Color.DarkGray;
+
+            m_switchTrade = true;
         }
 
         /// <summary>
@@ -194,13 +207,14 @@ namespace Renko_MeteCro
         /// </summary>
         private void M_looper_EventCanNextCommandLine()
         {
+            if (m_switchTrade == false) return;
             //始终取第一条去发送处理，最后把这条记录删除掉
             if (m_commandLists.Count > 0)
             {
                 string commandLine = m_commandLists[0];
                 m_CommandLineHooker.SendMessageCommandLine(commandLine);
 
-                SetLog("发送CommandLine指令-成功，继续下一个区间回测...");
+                SetLog(string.Format("发送CommandLine指令:{0}-成功，继续下一个区间回测...", commandLine));
 
                 m_commandLists.RemoveAt(0);
             }
@@ -249,6 +263,29 @@ namespace Renko_MeteCro
             this.textBox_TestCommandLine.Text = ConfigurationManager.AppSettings["CommandLineTest"];
             this.textBox_Ins.Text = ConfigurationManager.AppSettings["Instrument"];
             this.textBox_DataSource.Text = ConfigurationManager.AppSettings["DataSource"];
+        }
+
+        private void button_Stop_Click(object sender, EventArgs e)
+        {
+            if(m_switchTrade)
+            {
+                m_switchTrade = false;
+            }
+            else
+            {
+                m_switchTrade = true;
+
+                //始终取第一条去发送处理，最后把这条记录删除掉
+                if (m_commandLists.Count > 0)
+                {
+                    string commandLine = m_commandLists[0];
+                    m_CommandLineHooker.SendMessageCommandLine(commandLine);
+
+                    SetLog(string.Format("继续发送CommandLine指令:{0}-成功，继续下一个区间回测...", commandLine));
+
+                    m_commandLists.RemoveAt(0);
+                }
+            }
         }
     }
 }

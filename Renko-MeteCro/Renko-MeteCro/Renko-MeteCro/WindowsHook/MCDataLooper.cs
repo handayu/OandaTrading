@@ -17,7 +17,7 @@ namespace Renko_MeteCro
         private static extern int SendMessage(IntPtr hwnd, int wMsg, int wParam, StringBuilder lParam);
         private int WM_GETTEXT = 0x0D;
 
-        private System.Threading.Timer m_timer;
+        private System.Threading.Timer m_timer = null;
 
         private IntPtr m_intPtr;
 
@@ -43,7 +43,7 @@ namespace Renko_MeteCro
             {
                 m_intPtr = outPutHandle;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -55,12 +55,12 @@ namespace Renko_MeteCro
         {
             //设定开启定时器发消息
             m_timer = new System.Threading.Timer(new System.Threading.TimerCallback(tick), null, 0, 5000);
-
         }
 
         private void tick(object o)
-        { 
-            const int buffer_size = 1024;
+        {
+
+            const int buffer_size = 65536;
             StringBuilder buffer = new StringBuilder(buffer_size);
             SendMessage(m_intPtr, WM_GETTEXT, buffer_size, buffer);
             string str = buffer.ToString();
@@ -75,6 +75,8 @@ namespace Renko_MeteCro
 
             //4.发布继续下一条CommandLine事件
             RaiseNextCommandLineEvent();
+
+
         }
 
         /// <summary>
@@ -84,7 +86,7 @@ namespace Renko_MeteCro
         private void RaiseReceiveDataEvent(string data)
         {
             if (data == "" || data == null) return;
-            if(EventReceiveOutPutData != null)
+            if (EventReceiveOutPutData != null)
             {
                 EventReceiveOutPutData(data);
             }

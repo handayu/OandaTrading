@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button_ClickTest = new System.Windows.Forms.Button();
             this.textBox_TestCommandLine = new System.Windows.Forms.TextBox();
             this.textBox_CommandLineHandle = new System.Windows.Forms.TextBox();
             this.button_SendCommandLines = new System.Windows.Forms.Button();
@@ -50,7 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.richTextBox_log = new System.Windows.Forms.RichTextBox();
             this.button_Start = new System.Windows.Forms.Button();
-            this.button_ClickTest = new System.Windows.Forms.Button();
+            this.button_Stop = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -74,6 +75,17 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Multicharts-CommandLine设置";
+            // 
+            // button_ClickTest
+            // 
+            this.button_ClickTest.Location = new System.Drawing.Point(135, 82);
+            this.button_ClickTest.Margin = new System.Windows.Forms.Padding(2);
+            this.button_ClickTest.Name = "button_ClickTest";
+            this.button_ClickTest.Size = new System.Drawing.Size(82, 27);
+            this.button_ClickTest.TabIndex = 5;
+            this.button_ClickTest.Text = "Test-Click";
+            this.button_ClickTest.UseVisualStyleBackColor = true;
+            this.button_ClickTest.Click += new System.EventHandler(this.button_ClickTest_Click);
             // 
             // textBox_TestCommandLine
             // 
@@ -284,6 +296,8 @@
             // 
             // richTextBox_log
             // 
+            this.richTextBox_log.BackColor = System.Drawing.SystemColors.InfoText;
+            this.richTextBox_log.ForeColor = System.Drawing.Color.Red;
             this.richTextBox_log.Location = new System.Drawing.Point(8, 249);
             this.richTextBox_log.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox_log.Name = "richTextBox_log";
@@ -293,25 +307,25 @@
             // 
             // button_Start
             // 
-            this.button_Start.BackColor = System.Drawing.Color.Brown;
+            this.button_Start.BackColor = System.Drawing.Color.DarkRed;
             this.button_Start.Location = new System.Drawing.Point(8, 386);
             this.button_Start.Name = "button_Start";
-            this.button_Start.Size = new System.Drawing.Size(480, 56);
+            this.button_Start.Size = new System.Drawing.Size(228, 56);
             this.button_Start.TabIndex = 4;
-            this.button_Start.Text = "启动循环回测";
+            this.button_Start.Text = "启动";
             this.button_Start.UseVisualStyleBackColor = false;
             this.button_Start.Click += new System.EventHandler(this.button_Start_Click);
             // 
-            // button_ClickTest
+            // button_Stop
             // 
-            this.button_ClickTest.Location = new System.Drawing.Point(135, 82);
-            this.button_ClickTest.Margin = new System.Windows.Forms.Padding(2);
-            this.button_ClickTest.Name = "button_ClickTest";
-            this.button_ClickTest.Size = new System.Drawing.Size(82, 27);
-            this.button_ClickTest.TabIndex = 5;
-            this.button_ClickTest.Text = "Test-Click";
-            this.button_ClickTest.UseVisualStyleBackColor = true;
-            this.button_ClickTest.Click += new System.EventHandler(this.button_ClickTest_Click);
+            this.button_Stop.BackColor = System.Drawing.Color.Brown;
+            this.button_Stop.Location = new System.Drawing.Point(256, 385);
+            this.button_Stop.Name = "button_Stop";
+            this.button_Stop.Size = new System.Drawing.Size(228, 56);
+            this.button_Stop.TabIndex = 5;
+            this.button_Stop.Text = "暂停/继续";
+            this.button_Stop.UseVisualStyleBackColor = false;
+            this.button_Stop.Click += new System.EventHandler(this.button_Stop_Click);
             // 
             // Form1
             // 
@@ -319,6 +333,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(500, 454);
+            this.Controls.Add(this.button_Stop);
             this.Controls.Add(this.button_Start);
             this.Controls.Add(this.richTextBox_log);
             this.Controls.Add(this.groupBox3);
@@ -366,6 +381,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button_Start;
         private System.Windows.Forms.Button button_ClickTest;
+        private System.Windows.Forms.Button button_Stop;
     }
 }
 
