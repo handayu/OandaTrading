@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_ClickTest = new System.Windows.Forms.Button();
             this.textBox_TestCommandLine = new System.Windows.Forms.TextBox();
@@ -303,7 +304,7 @@
             this.richTextBox_log.Name = "richTextBox_log";
             this.richTextBox_log.Size = new System.Drawing.Size(483, 131);
             this.richTextBox_log.TabIndex = 3;
-            this.richTextBox_log.Text = "设定-回测-日志开启......";
+            this.richTextBox_log.Text = resources.GetString("richTextBox_log.Text");
             // 
             // button_Start
             // 

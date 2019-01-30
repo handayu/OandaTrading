@@ -25,6 +25,9 @@ namespace Renko_MeteCro
         public Form1()
         {
             InitializeComponent();
+
+            this.button_Stop.Enabled = false;
+            this.button_Stop.BackColor = Color.DarkGray;
         }
 
         private void button_DateSet_Click(object sender, EventArgs e)
@@ -198,6 +201,10 @@ namespace Renko_MeteCro
 
             this.button_Start.Enabled = false;
             this.button_Start.BackColor = Color.DarkGray;
+
+
+            this.button_Stop.Enabled = true;
+            this.button_Stop.BackColor = Color.Red;
 
             m_switchTrade = true;
         }
