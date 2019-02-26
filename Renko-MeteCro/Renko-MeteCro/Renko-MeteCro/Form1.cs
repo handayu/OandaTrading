@@ -192,7 +192,9 @@ namespace Renko_MeteCro
 
             //
             //m_CommandLineHooker.SendMessageCommandLine(m_commandLists[0]);
-            m_CommandLineHooker.SendMessageCommandLine(".csy dnum=1, name=CFFEX.IF HOT, df=MCTrader, res=1 min,from=12/31/2018, to=1/5/2019");
+            //因为主图引用附图的原因，主图tick和附图砖要是相同的时间区间长度，所以主图dnum=1,dnum=2都要同时改变
+            m_CommandLineHooker.SendMessageCommandLine(".csy dnum=2,from=12/31/2018, to=1/5/2019");
+            m_CommandLineHooker.SendMessageCommandLine(".csy dnum=1,from=12/31/2018, to=1/5/2019");
 
             //记得要在这里发送Click事件，否则图标不会拉出来MC
             m_CommandLineHooker.SendMessageClick();
@@ -218,8 +220,27 @@ namespace Renko_MeteCro
             //始终取第一条去发送处理，最后把这条记录删除掉
             if (m_commandLists.Count > 0)
             {
+                //因为主图引用附图的原因，主图tick和附图砖要是相同的时间区间长度，所以主图dnum=1,dnum=2都要同时改变
+                //在这里把commandLIne的dnum后1改为2同步一起再发送一遍
+                //.csy dnum=2,from=12/31/2018,to=1/5/2019
                 string commandLine = m_commandLists[0];
+                string commandLine2 = string.Empty;
+
+                for(int i = 0;i< commandLine.Length;i++)
+                {
+                    if(i == 10)
+                    {
+                        commandLine2 = commandLine2 + '2';
+                    }
+                    else
+                    {
+                        commandLine2 = commandLine2 + commandLine[i];
+                    }
+                }
+
+                m_CommandLineHooker.SendMessageCommandLine(commandLine2);
                 m_CommandLineHooker.SendMessageCommandLine(commandLine);
+
 
                 SetLog(string.Format("发送CommandLine指令:{0}-成功，继续下一个区间回测...", commandLine));
 

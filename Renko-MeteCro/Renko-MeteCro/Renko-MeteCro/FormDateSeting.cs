@@ -117,8 +117,8 @@ namespace Renko_MeteCro
                     string result = string.Empty;
                     //实例指令:
                     //.csy dnum=1, name=CFFEX.IF HOT, df=MCTrader, res=1 min,from=12/31/2018, to=1/5/2019
-                    result = string.Format(".csy dnum=1, name={0}, df={1}, res=1 tic,from={2}/{3}/{4}, to={5}/{6}/{7}",
-                        m_ins, m_dataSource, sDate.Month, sDate.Day, sDate.Year, eDate.Month, eDate.Day, eDate.Year);
+                    result = string.Format(".csy dnum=1,from={0}/{1}/{2}, to={3}/{4}/{5}",
+                        sDate.Month, sDate.Day, sDate.Year, eDate.Month, eDate.Day, eDate.Year);
 
                     m_mcCommandLineList.Add(result);
 
@@ -150,8 +150,8 @@ namespace Renko_MeteCro
                     string result = string.Empty;
                     //实例指令:
                     //.csy dnum=1, name=CFFEX.IF HOT, df=MCTrader, res=1 min,from=12/31/2018, to=1/5/2019
-                    result = string.Format(".csy dnum=1, name={0}, df={1}, res=1 tic,from={2}/{3}/{4}, to={5}/{6}/{7}",
-                        m_ins, m_dataSource, sDate.Month, sDate.Day, sDate.Year, eDate.Month, eDate.Day, eDate.Year);
+                    result = string.Format(".csy dnum=1,from={0}/{1}/{2}, to={3}/{4}/{5}",
+                        sDate.Month, sDate.Day, sDate.Year, eDate.Month, eDate.Day, eDate.Year);
 
                     m_mcCommandLineList.Add(result);
 
@@ -181,8 +181,8 @@ namespace Renko_MeteCro
                     string result = string.Empty;
                     //实例指令:
                     //.csy dnum=1, name=CFFEX.IF HOT, df=MCTrader, res=1 min,from=12/31/2018, to=1/5/2019
-                    result = string.Format(".csy dnum=1, name={0}, df={1}, res=1 tic,from={2}/{3}/{4}, to={5}/{6}/{7}",
-                        m_ins, m_dataSource, newStartDate.Month, newStartDate.Day, newStartDate.Year, newEndDate.Month, newEndDate.Day, newEndDate.Year);
+                    result = string.Format(".csy dnum=1,from={0}/{1}/{2}, to={3}/{4}/{5}",
+                         newStartDate.Month, newStartDate.Day, newStartDate.Year, newEndDate.Month, newEndDate.Day, newEndDate.Year);
 
                     m_mcCommandLineList.Add(result);
 
