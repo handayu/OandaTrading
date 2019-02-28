@@ -12,8 +12,6 @@ namespace Renko_MeteCro
 {
     public partial class FormDateSeting : Form
     {
-        private string m_ins = string.Empty;
-        private string m_dataSource = string.Empty;
 
         private List<string> m_mcCommandLineList = new List<string>();
 
@@ -26,15 +24,6 @@ namespace Renko_MeteCro
         public FormDateSeting()
         {
             InitializeComponent();
-        }
-
-        public FormDateSeting(string ins ,string dataSource)
-        {
-            InitializeComponent();
-
-            m_ins = ins;
-
-            m_dataSource = dataSource;
         }
 
         private void radioButton_focusLast_CheckedChanged(object sender, EventArgs e)
@@ -110,8 +99,6 @@ namespace Renko_MeteCro
                 {
                     DateTime sDate = tempStartDate;
                     DateTime eDate = endDate;
-                    string ins = m_ins;
-                    string dateSource = m_dataSource;
 
                     //合成一条需要回测的指令
                     string result = string.Empty;
@@ -143,8 +130,6 @@ namespace Renko_MeteCro
                 {
                     DateTime sDate = startDate;
                     DateTime eDate = tempEndDate;
-                    string ins = m_ins;
-                    string dateSource = m_dataSource;
 
                     //合成一条需要回测的指令
                     string result = string.Empty;
@@ -173,9 +158,6 @@ namespace Renko_MeteCro
                 {
                     DateTime newStartDate = this.dateTimePicker_first.Value.AddDays(i);
                     DateTime newEndDate = this.dateTimePicker_last.Value.AddDays(i);
-
-                    string ins = m_ins;
-                    string dateSource = m_dataSource;
 
                     //合成一条需要回测的指令
                     string result = string.Empty;

@@ -139,4 +139,7 @@ Quality打印是在最后，则是按照时间序列，因为每根Bar都会打�
                      print(Quality );
 	                  end;  </value>
   </data>
+  <metadata name="timer_AutoXY.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

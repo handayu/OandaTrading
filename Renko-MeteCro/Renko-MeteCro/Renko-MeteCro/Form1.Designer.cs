@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button_ClickTest = new System.Windows.Forms.Button();
@@ -46,16 +47,25 @@
             this.label4 = new System.Windows.Forms.Label();
             this.button_DateSet = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox_DataSource = new System.Windows.Forms.TextBox();
-            this.textBox_Ins = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.richTextBox_log = new System.Windows.Forms.RichTextBox();
             this.button_Start = new System.Windows.Forms.Button();
             this.button_Stop = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox_TestCOmmandLineNew = new System.Windows.Forms.TextBox();
+            this.textBoxX = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxY = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.timer_AutoXY = new System.Windows.Forms.Timer(this.components);
+            this.button_Clear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -68,7 +78,7 @@
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.ForeColor = System.Drawing.Color.Gray;
-            this.groupBox1.Location = new System.Drawing.Point(8, 8);
+            this.groupBox1.Location = new System.Drawing.Point(228, 59);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -200,10 +210,6 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.button_DateSet);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.textBox_DataSource);
-            this.groupBox3.Controls.Add(this.textBox_Ins);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.ForeColor = System.Drawing.Color.Gray;
             this.groupBox3.Location = new System.Drawing.Point(8, 132);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
@@ -238,10 +244,10 @@
             // 
             // button_DateSet
             // 
-            this.button_DateSet.Location = new System.Drawing.Point(334, 22);
+            this.button_DateSet.Location = new System.Drawing.Point(204, 32);
             this.button_DateSet.Margin = new System.Windows.Forms.Padding(2);
             this.button_DateSet.Name = "button_DateSet";
-            this.button_DateSet.Size = new System.Drawing.Size(76, 18);
+            this.button_DateSet.Size = new System.Drawing.Size(115, 25);
             this.button_DateSet.TabIndex = 5;
             this.button_DateSet.Text = "区间设定";
             this.button_DateSet.UseVisualStyleBackColor = true;
@@ -250,50 +256,12 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(246, 26);
+            this.label3.Location = new System.Drawing.Point(116, 36);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 12);
             this.label3.TabIndex = 4;
             this.label3.Text = "回测区间设置:";
-            // 
-            // textBox_DataSource
-            // 
-            this.textBox_DataSource.Location = new System.Drawing.Point(67, 49);
-            this.textBox_DataSource.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox_DataSource.Name = "textBox_DataSource";
-            this.textBox_DataSource.Size = new System.Drawing.Size(149, 21);
-            this.textBox_DataSource.TabIndex = 3;
-            this.textBox_DataSource.Text = "MCTrader";
-            // 
-            // textBox_Ins
-            // 
-            this.textBox_Ins.Location = new System.Drawing.Point(67, 21);
-            this.textBox_Ins.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox_Ins.Name = "textBox_Ins";
-            this.textBox_Ins.Size = new System.Drawing.Size(149, 21);
-            this.textBox_Ins.TabIndex = 2;
-            this.textBox_Ins.Text = "CFFEX.IF HOT";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(11, 51);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 12);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "数据源:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 26);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "品种:";
             // 
             // richTextBox_log
             // 
@@ -328,12 +296,141 @@
             this.button_Stop.UseVisualStyleBackColor = false;
             this.button_Stop.Click += new System.EventHandler(this.button_Stop_Click);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox4.Controls.Add(this.button_Clear);
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.textBoxY);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.button1);
+            this.groupBox4.Controls.Add(this.textBox_TestCOmmandLineNew);
+            this.groupBox4.Controls.Add(this.textBoxX);
+            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.ForeColor = System.Drawing.Color.Gray;
+            this.groupBox4.Location = new System.Drawing.Point(11, 8);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(233, 120);
+            this.groupBox4.TabIndex = 6;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Multicharts-CommandLine设置";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(89, 87);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(73, 27);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Test-Enter";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Test_EnterClick);
+            // 
+            // textBox_TestCOmmandLineNew
+            // 
+            this.textBox_TestCOmmandLineNew.Location = new System.Drawing.Point(76, 63);
+            this.textBox_TestCOmmandLineNew.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_TestCOmmandLineNew.Name = "textBox_TestCOmmandLineNew";
+            this.textBox_TestCOmmandLineNew.Size = new System.Drawing.Size(152, 21);
+            this.textBox_TestCOmmandLineNew.TabIndex = 4;
+            this.textBox_TestCOmmandLineNew.Text = ".csy dnum=1,from=12/31/2018, to=1/5/2019";
+            // 
+            // textBoxX
+            // 
+            this.textBoxX.Location = new System.Drawing.Point(147, 16);
+            this.textBoxX.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxX.Name = "textBoxX";
+            this.textBoxX.Size = new System.Drawing.Size(70, 21);
+            this.textBoxX.TabIndex = 3;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(15, 87);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(73, 27);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "SendCopyBoard";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.buttonSendCopyBoard_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 70);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 12);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "测试信息:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(10, 19);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(125, 12);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "CommandLine-ComboxX:";
+            // 
+            // textBoxY
+            // 
+            this.textBoxY.Location = new System.Drawing.Point(147, 40);
+            this.textBoxY.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxY.Name = "textBoxY";
+            this.textBoxY.Size = new System.Drawing.Size(70, 21);
+            this.textBoxY.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 43);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(125, 12);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "CommandLine-ComboxY:";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(163, 87);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(33, 27);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "AutoXY";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Auto_XYClick);
+            // 
+            // timer_AutoXY
+            // 
+            this.timer_AutoXY.Enabled = true;
+            this.timer_AutoXY.Interval = 4000;
+            this.timer_AutoXY.Tick += new System.EventHandler(this.Timer_AutoXY_TimerEvent);
+            // 
+            // button_Clear
+            // 
+            this.button_Clear.Location = new System.Drawing.Point(195, 86);
+            this.button_Clear.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Clear.Name = "button_Clear";
+            this.button_Clear.Size = new System.Drawing.Size(33, 27);
+            this.button_Clear.TabIndex = 9;
+            this.button_Clear.Text = "Clear";
+            this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.Click += new System.EventHandler(this.ClearXY_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(500, 454);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.button_Stop);
             this.Controls.Add(this.button_Start);
             this.Controls.Add(this.richTextBox_log);
@@ -353,6 +450,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -366,10 +465,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button_DateSet;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox_DataSource;
-        private System.Windows.Forms.TextBox textBox_Ins;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox richTextBox_log;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -383,6 +478,18 @@
         private System.Windows.Forms.Button button_Start;
         private System.Windows.Forms.Button button_ClickTest;
         private System.Windows.Forms.Button button_Stop;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBoxY;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox_TestCOmmandLineNew;
+        private System.Windows.Forms.TextBox textBoxX;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Timer timer_AutoXY;
+        private System.Windows.Forms.Button button_Clear;
     }
 }
 
