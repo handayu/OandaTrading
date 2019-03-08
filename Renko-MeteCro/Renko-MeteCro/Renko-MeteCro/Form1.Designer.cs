@@ -51,17 +51,18 @@
             this.button_Start = new System.Windows.Forms.Button();
             this.button_Stop = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button_Clear = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBoxY = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox_TestCOmmandLineNew = new System.Windows.Forms.TextBox();
             this.textBoxX = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBoxY = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.timer_AutoXY = new System.Windows.Forms.Timer(this.components);
-            this.button_Clear = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -319,6 +320,46 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Multicharts-CommandLine设置";
             // 
+            // button_Clear
+            // 
+            this.button_Clear.Location = new System.Drawing.Point(195, 86);
+            this.button_Clear.Margin = new System.Windows.Forms.Padding(2);
+            this.button_Clear.Name = "button_Clear";
+            this.button_Clear.Size = new System.Drawing.Size(33, 27);
+            this.button_Clear.TabIndex = 9;
+            this.button_Clear.Text = "Clear";
+            this.button_Clear.UseVisualStyleBackColor = true;
+            this.button_Clear.Click += new System.EventHandler(this.ClearXY_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(163, 87);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(33, 27);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "AutoXY";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Auto_XYClick);
+            // 
+            // textBoxY
+            // 
+            this.textBoxY.Location = new System.Drawing.Point(147, 40);
+            this.textBoxY.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxY.Name = "textBoxY";
+            this.textBoxY.Size = new System.Drawing.Size(70, 21);
+            this.textBoxY.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(10, 43);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(125, 12);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "CommandLine-ComboxY:";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(89, 87);
@@ -378,51 +419,16 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "CommandLine-ComboxX:";
             // 
-            // textBoxY
-            // 
-            this.textBoxY.Location = new System.Drawing.Point(147, 40);
-            this.textBoxY.Margin = new System.Windows.Forms.Padding(2);
-            this.textBoxY.Name = "textBoxY";
-            this.textBoxY.Size = new System.Drawing.Size(70, 21);
-            this.textBoxY.TabIndex = 7;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(10, 43);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(125, 12);
-            this.label11.TabIndex = 6;
-            this.label11.Text = "CommandLine-ComboxY:";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(163, 87);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(33, 27);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "AutoXY";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.Auto_XYClick);
-            // 
             // timer_AutoXY
             // 
             this.timer_AutoXY.Enabled = true;
             this.timer_AutoXY.Interval = 4000;
             this.timer_AutoXY.Tick += new System.EventHandler(this.Timer_AutoXY_TimerEvent);
             // 
-            // button_Clear
+            // timer1
             // 
-            this.button_Clear.Location = new System.Drawing.Point(195, 86);
-            this.button_Clear.Margin = new System.Windows.Forms.Padding(2);
-            this.button_Clear.Name = "button_Clear";
-            this.button_Clear.Size = new System.Drawing.Size(33, 27);
-            this.button_Clear.TabIndex = 9;
-            this.button_Clear.Text = "Clear";
-            this.button_Clear.UseVisualStyleBackColor = true;
-            this.button_Clear.Click += new System.EventHandler(this.ClearXY_Click);
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.Send_TickEvent);
             // 
             // Form1
             // 
@@ -490,6 +496,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Timer timer_AutoXY;
         private System.Windows.Forms.Button button_Clear;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

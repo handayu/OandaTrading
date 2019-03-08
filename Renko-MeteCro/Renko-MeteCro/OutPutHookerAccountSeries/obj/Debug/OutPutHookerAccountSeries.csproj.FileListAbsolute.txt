@@ -1,0 +1,10 @@
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\OutPutHookerAccountSeries\bin\Debug\OutPutHookerAccountSeries.exe.config
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\OutPutHookerAccountSeries\bin\Debug\OutPutHookerAccountSeries.exe
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\OutPutHookerAccountSeries\bin\Debug\OutPutHookerAccountSeries.pdb
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\OutPutHookerAccountSeries\obj\Debug\OutPutHookerAccountSeries.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\OutPutHookerAccountSeries\obj\Debug\OutPutHookerAccountSeries.Properties.Resources.resources
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\OutPutHookerAccountSeries\obj\Debug\OutPutHookerAccountSeries.csproj.GenerateResource.cache
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\OutPutHookerAccountSeries\obj\Debug\OutPutHookerAccountSeries.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\OutPutHookerAccountSeries\obj\Debug\OutPutHookerAccountSeries.exe
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\OutPutHookerAccountSeries\obj\Debug\OutPutHookerAccountSeries.pdb
+C:\Users\Administrator\Desktop\OandaTrading\Renko-MeteCro\Renko-MeteCro\OutPutHookerAccountSeries\obj\Debug\OutPutHookerAccountSeries.Form1.resources

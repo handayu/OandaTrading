@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace Renko_MeteCro
+namespace OutPutHookerAccountSeries
 {
     public class MCDataLooper
     {
@@ -18,8 +18,11 @@ namespace Renko_MeteCro
         private int WM_GETTEXT = 0x0D;
 
         private System.Threading.Timer m_timer = null;
+        private System.Threading.Timer m_timerBackCal = null;
 
         private IntPtr m_intPtr;
+
+        private int m_timeInt = int.MinValue;
 
         /// <summary>
         /// 收到数据事件，通知给外部
@@ -34,14 +37,20 @@ namespace Renko_MeteCro
         public delegate void CanNextCommandLineHandle();
         public event CanNextCommandLineHandle EventCanNextCommandLine;
 
+        /// <summary>
+        /// 倒计时
+        /// </summary>
+        public delegate void CalLeftTimerHandle(int leftTime);
+        public event CalLeftTimerHandle EventCalLeftTimer;
 
         //定时器获取文本
 
-        public MCDataLooper(IntPtr outPutHandle)
+        public MCDataLooper(IntPtr outPutHandle,int timerInt)
         {
             try
             {
                 m_intPtr = outPutHandle;
+                m_timeInt = timerInt;
             }
             catch (Exception ex)
             {
@@ -54,7 +63,16 @@ namespace Renko_MeteCro
         public void Start()
         {
             //设定开启定时器发消息
-            m_timer = new System.Threading.Timer(new System.Threading.TimerCallback(tick), null, 0, 10);
+            m_timer = new System.Threading.Timer(new System.Threading.TimerCallback(tick), null, 0, m_timeInt);
+
+        }
+
+        public void ChangedTimerSpan(int timer)
+        {
+            if(m_timer != null)
+            {
+                m_timer.Change(0, timer);
+            }
         }
 
         private void tick(object o)
@@ -73,11 +91,8 @@ namespace Renko_MeteCro
             //3.发布收到数据事件
             RaiseReceiveDataEvent(str);
 
-            //4.发布继续下一条CommandLine事件
-            RaiseNextCommandLineEvent();
-
-
         }
+
 
         /// <summary>
         /// 发起接受数据事件

@@ -130,14 +130,14 @@ namespace Renko_MeteCro
 
         private void button_Start_Click(object sender, EventArgs e)
         {
-            //判断主引擎
-            if (m_looper == null)
-            {
-                MessageBox.Show("还未测试通过Output窗口Hooker，请先通过测试...");
-                SetLog("还未测试通过Output窗口Hooker，请先通过测试...");
-                return;
-            }
-            SetLog("主引擎通过测试-成功...");
+            //判断主引擎(可以不判断，仅仅测试发CommandLine到multichatrs中)
+            //if (m_looper == null)
+            //{
+            //    MessageBox.Show("还未测试通过Output窗口Hooker，请先通过测试...");
+            //    SetLog("还未测试通过Output窗口Hooker，请先通过测试...");
+            //    return;
+            //}
+            //SetLog("主引擎通过测试-成功...");
 
             //判断CommandHooker测试引擎
             //if (m_CommandLineHooker == null)
@@ -159,21 +159,21 @@ namespace Renko_MeteCro
             SetLog("M_commandLists设置完毕-成功...");
 
             //弹出图线窗口
-            m_chart = new FormChart();
-            m_chart.Show();
-            m_chart.TopMost = true;
-            SetLog("图线阵列通过测试-成功...");
+            //m_chart = new FormChart();
+            //m_chart.Show();
+            //m_chart.TopMost = true;
+            //SetLog("图线阵列通过测试-成功...");
 
 
             //订阅两个事件
-            m_looper.EventReceiveOutPutData += m_chart.ReceiveOutPutData;
-            m_looper.EventCanNextCommandLine += M_looper_EventCanNextCommandLine;
-            SetLog("主引擎事件订阅通过-成功...");
+            //m_looper.EventReceiveOutPutData += m_chart.ReceiveOutPutData;
+            //m_looper.EventCanNextCommandLine += M_looper_EventCanNextCommandLine;
+            //SetLog("主引擎事件订阅通过-成功...");
 
 
             //启动循环
-            m_looper.Start();
-            SetLog("启动主引擎通过-成功...");
+            //m_looper.Start();
+            //SetLog("启动主引擎通过-成功...");
 
             //发送第一条CommandLine指令
             SetLog("准备发送第一条CommandLine指令...");
@@ -192,6 +192,7 @@ namespace Renko_MeteCro
             //m_CommandLineHooker.SendMessageClick();
 
             SendMessageToCommanLineAndEnter(".csy dnum=2,from=12/31/2018, to=1/5/2019");
+            System.Threading.Thread.Sleep(10);
             SendMessageToCommanLineAndEnter(".csy dnum=1,from=12/31/2018, to=1/5/2019");
 
             SetLog("发送第一条CommandLine指令-成功，进入循环...");
@@ -203,7 +204,9 @@ namespace Renko_MeteCro
             this.button_Stop.Enabled = true;
             this.button_Stop.BackColor = Color.Red;
 
-            m_switchTrade = true;
+            //m_switchTrade = true;
+
+            this.timer1.Enabled = true;
         }
 
         /// <summary>
@@ -236,6 +239,7 @@ namespace Renko_MeteCro
                 //m_CommandLineHooker.SendMessageCommandLine(commandLine2);
                 //m_CommandLineHooker.SendMessageCommandLine(commandLine);
                 SendMessageToCommanLineAndEnter(commandLine2);
+                System.Threading.Thread.Sleep(10);
                 SendMessageToCommanLineAndEnter(commandLine);
 
                 SetLog(string.Format("发送CommandLine指令:{0}-成功，继续下一个区间回测...", commandLine));
@@ -320,6 +324,8 @@ namespace Renko_MeteCro
                     //m_CommandLineHooker.SendMessageCommandLine(commandLine2);
                     //m_CommandLineHooker.SendMessageCommandLine(commandLine);
                     SendMessageToCommanLineAndEnter(commandLine2);
+                    System.Threading.Thread.Sleep(10);
+
                     SendMessageToCommanLineAndEnter(commandLine);
 
                     SetLog(string.Format("发送CommandLine指令:{0}-成功，继续下一个区间回测...", commandLine));
@@ -405,16 +411,30 @@ namespace Renko_MeteCro
             }
 
             //用屏幕取点工具可以得到坐标
-            SetCursorPos(x, y);
+            //SetCursorPos(x, y);
             //点击
-            mouse_event((int)(MouseEventFlags.LeftDown | MouseEventFlags.LeftUp), x, y, 0, IntPtr.Zero);
+            //mouse_event((int)(MouseEventFlags.LeftDown | MouseEventFlags.LeftUp), x, y, 0, IntPtr.Zero);
             SendKeys.SendWait("{ENTER}"); //模拟键盘输入ENTER
+        }
+
+        private void SendKeyContent(string context)
+        {
+            if (context == "" || context == null) return;
+            foreach (char c in context)
+            {
+                SendKeys.SendWait(c.ToString());
+                System.Threading.Thread.Sleep(10);
+            }
         }
 
         private void UseClipBoardWenziSend(string content)
         {
-            Clipboard.Clear();
-            Clipboard.SetDataObject(content);
+            //剪切版不稳定 直接模拟鼠标SendKeys操作
+            //if(Clipboard.ContainsText())
+            //{
+            //    Clipboard.Clear();
+            //    Clipboard.SetDataObject(content);
+            //}
 
             //2--------------------------------------------------
             int x = int.MinValue;
@@ -444,11 +464,11 @@ namespace Renko_MeteCro
             SetCursorPos(x, y);
 
             //点击获得输入的焦点
-            mouse_event((int)(MouseEventFlags.LeftDown | MouseEventFlags.LeftUp), 0, 0, 0, IntPtr.Zero);
+            mouse_event((int)(MouseEventFlags.LeftDown | MouseEventFlags.LeftUp), x, y, 0, IntPtr.Zero);
             System.Threading.Thread.Sleep(200);
-            //3.-------------------------------
-            SendKeys.SendWait("^{V}");
 
+            //输入我们需要测试的内容
+            SendKeyContent(content);
         }
 
         public enum MouseEventFlags
@@ -468,6 +488,41 @@ namespace Renko_MeteCro
         {
             this.textBoxX.Text = "";
             this.textBoxY.Text = "";
+        }
+
+        private void Send_TickEvent(object sender, EventArgs e)
+        {
+            //始终取第一条去发送处理，最后把这条记录删除掉
+            if (m_commandLists.Count > 0)
+            {
+                //因为主图引用附图的原因，主图tick和附图砖要是相同的时间区间长度，所以主图dnum=1,dnum=2都要同时改变
+                //在这里把commandLIne的dnum后1改为2同步一起再发送一遍
+                //.csy dnum=2,from=12/31/2018,to=1/5/2019
+                string commandLine = m_commandLists[0];
+                string commandLine2 = string.Empty;
+
+                for (int i = 0; i < commandLine.Length; i++)
+                {
+                    if (i == 10)
+                    {
+                        commandLine2 = commandLine2 + '2';
+                    }
+                    else
+                    {
+                        commandLine2 = commandLine2 + commandLine[i];
+                    }
+                }
+
+                //m_CommandLineHooker.SendMessageCommandLine(commandLine2);
+                //m_CommandLineHooker.SendMessageCommandLine(commandLine);
+                SendMessageToCommanLineAndEnter(commandLine2);
+                System.Threading.Thread.Sleep(10);
+                SendMessageToCommanLineAndEnter(commandLine);
+
+                SetLog(string.Format("发送CommandLine指令:{0}-成功，继续下一个区间回测...", commandLine));
+
+                m_commandLists.RemoveAt(0);
+            }
         }
     }
 }

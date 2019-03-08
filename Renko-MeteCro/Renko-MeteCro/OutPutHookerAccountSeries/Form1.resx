@@ -117,32 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="richTextBox_log.Text" xml:space="preserve">
-    <value>设定-回测-日志开启......
-     在Multicharts代码中需要加入打印代码，在运行策略的
-过程中，才会把每笔盈亏成交后，状态改变时，输出到输出窗口
-用以绘制回测曲线(下面是非时间序列资金曲线-按照平仓净值，如果
-Quality打印是在最后，则是按照时间序列，因为每根Bar都会打印净值)
-另外要注意的是，以下是K线测试，如果是Renko测试，还要去砖处理；
-      参考代码:
-      variables: 
-         Quality(0);
-   		if  close cross above var1 then   begin
-			Buy ( "B" ) next bar at Market;   
-			Quality = Quality + positionprofit(1);
-			print(Quality );
-	                 end;
-
-		if close cross under var1 then begin
-			Sell Short ( "S" )  next bar at Market;
-			Quality = Quality + positionprofit(1);
-                     print(Quality );
-	                  end;  </value>
-  </data>
-  <metadata name="timer_AutoXY.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
-  </metadata>
 </root>
