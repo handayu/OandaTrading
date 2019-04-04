@@ -1,0 +1,19 @@
+
+系统：
+
+1.windows-server win10以上操作系统；
+2.4G内存；
+
+
+软件:
+1.英文版Multchsarts;
+2.中文艾洋软件Multicharts；
+3.TWS-IB软件；
+4.TradeStation;
+5.Spy++窗口抓捕工具；
+6.微信-用于监控;
+7.微信通知系统(WeChart-Notify);
+8.向日葵-远程控制系统；
+9.快期等-应急平仓处理；
+10.窗口透明工具-隐藏微信界面；
+11.QQ用于传输文件；
